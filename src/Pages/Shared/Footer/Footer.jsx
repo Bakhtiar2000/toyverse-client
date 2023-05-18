@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../../public/assets/ToyVerse Logo.png'
+import logo from '/assets/ToyVerse Logo.png'
 
 const Footer = () => {
     return (
@@ -12,11 +12,11 @@ const Footer = () => {
                 </div>
                 <div>
                     <p className='footer-title mb-0'>Address</p>
-                    <span><small>103 Main Street, London, England</small></span>
+                    <span>103 Main Street, London, England</span>
                     <p className='footer-title mb-0'>Phone</p>
-                    <span><small>+44 20 1234 5677, +44 20 1234 5678</small></span>
+                    <span>+44 20 1234 5677, +44 20 1234 5678</span>
                     <p className='footer-title mb-0'>Email</p>
-                    <span><small>contact@toyverse.co.uk</small></span>
+                    <span>contact@toyverse.co.uk</span>
                     
                    
                 </div>
