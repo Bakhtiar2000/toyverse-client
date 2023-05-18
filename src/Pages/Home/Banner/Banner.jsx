@@ -3,6 +3,7 @@ import kid1 from '/assets/Banner/kid-1.png'
 
 const Banner = () => {
     return (
+        // Explore the finest realistic action figures that you have never seen before
         <div className='h-[500px] bg-slate-100'>
             <div className='max-w-7xl mx-auto flex justify-between'>
                 <img className='mt-20' src={kid1} alt="" />
