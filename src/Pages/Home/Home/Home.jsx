@@ -5,7 +5,7 @@ import ShopByCategory from '../ShopByCategory/ShopByCategory';
 
 const Home = () => {
     return (
-        <div className='max-w-7xl mx-auto my-5'>
+        <div>
            <Banner></Banner>
            <Gallery></Gallery>
            <ShopByCategory></ShopByCategory>
