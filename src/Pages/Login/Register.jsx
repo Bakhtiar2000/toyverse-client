@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import logo from '/assets/ToyVerse Logo.png'
 import { FaEye } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
     const [show, setShow]= useState(false)
+    const [success, setSuccess] = useState('')
 
     const handlePasswordToggle= ()=>{
         setShow(!show)
@@ -18,13 +20,23 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, email, password)
+        setSuccess('')
 
         createUser(email, password)
-            .then(res => {
-                const user = res.user;
-                console.log(user)
+            .then(result => {
+                const createdUser = result.user
+                console.log(createdUser)
+                setSuccess('Registration successful')
+                updateProfile(createdUser, {
+                    displayName: name, photoURL: photo
+                })
+                    .then(() => {
+                        console.log('Profile Updated!')
+                    })
+                    .catch((error) => setError(error.message));
+                form.reset()
             })
-            .catch(err => console.log(err.message))
+            .catch(err => setError(err.message))
     }
     return (
         <div className="hero min-h-screen">
@@ -71,6 +83,7 @@ const Register = () => {
                             </div>
                         </form>
                         <p className='text-center mt-3'>Already have an account? <Link to='/login'><span className='text-primary'>Login</span></Link></p>
+                        {success !== '' && <p className='text-green-500 text-xs mt-3 text-center'>{success}</p>}
                     </div>
                 </div>
             </div>

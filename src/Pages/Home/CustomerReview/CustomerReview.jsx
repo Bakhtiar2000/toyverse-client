@@ -14,8 +14,6 @@ const CustomerReview = () => {
                 spaceBetween={50}
                 slidesPerView={2}
                 navigation
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
             >
                 <SwiperSlide className="text-white text-center bg-yellow-950 lg:max-w-lg md:max-w-md max-w-xs mx-auto rounded-2xl">
                     <div className="px-4 pt-8 pb-6">

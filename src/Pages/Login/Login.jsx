@@ -18,7 +18,8 @@ const Login = () => {
     const handlePasswordToggle= ()=>{
         setShow(!show)
     }
-
+    setError('')
+    setSuccess('')
     const handleLogin = event => {
         event.preventDefault()
         const form = event.target
@@ -84,11 +85,11 @@ const Login = () => {
                                 <button className="btn btn-primary">Login</button>
                             </div>
                         </form>
-                        {error !== '' && <p className='text-red-500 text-xs mt-3'>{error}</p>}
+                        {error !== '' && <p className='text-red-500 text-xs mt-3 text-center'>{error}</p>}
                         
                         <div className="divider">OR</div>
                         <button className="btn btn-outline btn-primary"><span className='mr-2 text-xl'><FcGoogle /> </span> Continue with google</button>
-                        {success !== '' && <p className='text-green-500 text-xs mt-3'>{success}</p>}
+                        {success !== '' && <p className='text-green-500 text-xs mt-3 text-center'>{success}</p>}
                         <p className='text-center mt-3'>Don't have an account? <Link to='/register'><span className='text-primary'>Register</span></Link></p>
                     </div>
                 </div>
