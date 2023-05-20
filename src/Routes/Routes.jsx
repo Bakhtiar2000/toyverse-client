@@ -11,7 +11,6 @@ import Blog from '../Pages/Blog/Blog';
 import AddAToy from '../Pages/AddAToy/AddAToy';
 import AllToys from '../Pages/AllToys/AllToys';
 import MyToys from '../Pages/MyToys/MyToys';
-import Modal from '../Pages/Home/ShopByCategory/modal';
 import PrivateRoute from './PrivateRoute';
 import SingleToyDetails from '../Pages/SingleToyDetails/SingleToyDetails';
 

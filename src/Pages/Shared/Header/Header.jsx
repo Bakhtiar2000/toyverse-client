@@ -11,7 +11,7 @@ const Header = () => {
             .catch()
     }
     return (
-        <div className="navbar rounded-b-lg py-3 pe-5">
+        <div className="navbar rounded-b-lg py-3 md:pe-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -30,9 +30,9 @@ const Header = () => {
                         <li><Link to='/blog'>Blogs</Link></li>
                     </ul>
                 </div>
-                <Link to='/'><img className='w-8 rounded-md ml-3' src={logo} alt="" /></Link>
-                <div className='ml-5'>
-                    <p className="normal-case text-2xl font-serif">Toy verse</p>
+                <Link to='/'><img className='w-8 rounded-md md:ml-3' src={logo} alt="" /></Link>
+                <div className='ml-3 md:ml-5'>
+                    <p className="normal-case text-xl md:text-2xl font-serif">Toy verse</p>
                     <p className='text-xs'>Explore your imagination</p>
                 </div>
             </div>
@@ -59,7 +59,7 @@ const Header = () => {
                             </div>
                             <button className='btn bg-orange-500 border-0 font-semibold' onClick={handleLogOut}>Logout</button>
                         </> :
-                        <button className='btn bg-green-700 border-0'> <Link to='/login'>Login</Link></button>
+                        <button className='btn bg-orange-500 border-0'> <Link to='/login'>Login</Link></button>
                 }
             </div>
         </div>
