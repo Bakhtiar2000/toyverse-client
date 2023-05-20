@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { Link } from 'react-router-dom';
 
 const ShopByCategory = () => {
     const [toys, setToys] = useState([])
@@ -12,7 +13,7 @@ const ShopByCategory = () => {
 
     const fetchToys = async () => {
         try {
-            const response = await fetch('/toys.json');
+            const response = await fetch('http://localhost:5000/toys');
             const data = await response.json();
             setToys(data);
         } catch (error) {
@@ -58,8 +59,8 @@ const ShopByCategory = () => {
                             <div>
                                 <h2 className="text-2xl font-semibold text-green-400 mb-5">{toy.name}</h2>
                                 <p className="mb-1">Price: ${toy.price}</p>
-                                <p className="mb-1">Rating: {toy.rating}</p>
-                                <button className='btn btn-primary mt-5'>View Details </button>
+                                <p className="mb-1">Rating: {toy.rating}</p>   
+                                <Link to={`/singleToyDetails/${toy._id}`}><div className="btn bg-green-500 border-0 mt-5">View Details</div></Link>
                             </div>
                         </div>
                     ))}

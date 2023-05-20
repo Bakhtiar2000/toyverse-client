@@ -17,9 +17,10 @@ const Register = () => {
         event.preventDefault()
         const form = event.target
         const name = form.name.value;
+        const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password)
+        console.log(name, photo, email, password)
         setSuccess('')
 
         createUser(email, password)
@@ -33,10 +34,10 @@ const Register = () => {
                     .then(() => {
                         console.log('Profile Updated!')
                     })
-                    .catch((error) => setError(error.message));
+                    .catch((error) => console.log(error.message));
                 form.reset()
             })
-            .catch(err => setError(err.message))
+            .catch(err => console.log(err.message))
     }
     return (
         <div className="hero min-h-screen">

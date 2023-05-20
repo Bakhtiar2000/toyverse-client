@@ -9,6 +9,7 @@ const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigation()
+    console.log(navigate)
     const from = location.state?.from?.pathname || '/'
 
     const [success, setSuccess] = useState('')
@@ -38,7 +39,7 @@ const Login = () => {
             .catch(err => {
                 console.log(err.message)
                 if (err.message == 'Firebase: Error (auth/wrong-password).') {
-                    setError('Password did not match')
+                    setError('Wrong Password given')
                 }
             })
     }

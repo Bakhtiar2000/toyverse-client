@@ -11,6 +11,9 @@ import Blog from '../Pages/Blog/Blog';
 import AddAToy from '../Pages/AddAToy/AddAToy';
 import AllToys from '../Pages/AllToys/AllToys';
 import MyToys from '../Pages/MyToys/MyToys';
+import Modal from '../Pages/Home/ShopByCategory/modal';
+import PrivateRoute from './PrivateRoute';
+import SingleToyDetails from '../Pages/SingleToyDetails/SingleToyDetails';
 
   const router = createBrowserRouter([
     {
@@ -40,12 +43,18 @@ import MyToys from '../Pages/MyToys/MyToys';
         },
         {
             path: 'allToys',
-            element: <AllToys></AllToys>
+            element: <AllToys></AllToys>,
+            loader: ()=> fetch('http://localhost:5000/toys')
         },
         {
             path: 'myToys',
             element: <MyToys></MyToys>
         },
+        {
+          path: 'singleToyDetails/:id',
+          element: <PrivateRoute><SingleToyDetails></SingleToyDetails></PrivateRoute>,
+          loader: ({params})=> fetch(`http://localhost:5000/toys/${params.id}`)
+        }
       ]
     },
   ]);

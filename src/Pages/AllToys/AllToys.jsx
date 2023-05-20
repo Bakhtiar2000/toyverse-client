@@ -1,10 +1,44 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import ToyRow from './ToyRow';
 
 const AllToys = () => {
+    const toys= useLoaderData()
+
     return (
-        <div>
-            <h2 className='text-center font-semibold text-5xl my-8'>All Toys</h2>
-            
+        <div className="overflow-x-auto w-full">
+            <table className="table w-full">
+                {/* head */}
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Seller</th>
+                        <th>Sub-category</th>
+                        <th>Available Quantity</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        toys.map(toy=> <ToyRow
+                            key={toy._id}
+                            toy={toy}
+                        ></ToyRow>)
+                    }
+                </tbody>
+                {/* foot */}
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Job</th>
+                        <th>Favorite Color</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+
+            </table>
         </div>
     );
 };

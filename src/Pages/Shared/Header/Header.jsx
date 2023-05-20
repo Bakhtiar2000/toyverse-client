@@ -23,7 +23,7 @@ const Header = () => {
                         {
                             user &&
                             <div>
-                                <li to='/addAToy'><Link>Add a Toy</Link></li>
+                                <li><Link to='/addAToy'>Add a Toy</Link></li>
                                 <li><Link to='/myToys'>My Toys</Link></li>
                             </div>
                         }
@@ -43,7 +43,7 @@ const Header = () => {
                         {
                             user &&
                             <div className='flex'>
-                                <li to='/addAToy'><Link>Add a Toy</Link></li>
+                                <li><Link to='/addAToy'>Add a Toy</Link></li>
                                 <li><Link to='/myToys'>My Toys</Link></li>
                             </div>
                         }
