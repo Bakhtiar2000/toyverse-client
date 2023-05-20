@@ -3,7 +3,7 @@ import React from 'react';
 const YouMayLike = () => {
     return (
         <div className='max-w-7xl mx-auto'>
-            <h1 className="text-3xl mb-4 text-center">You may also like</h1>
+            <h1 className="text-center font-semibold text-5xl my-8">You may also like</h1>
             <div className='mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 <div className=' p-4'>
                     <div className='bg-gray-200 rounded py-2'>

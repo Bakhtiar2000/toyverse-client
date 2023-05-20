@@ -3,7 +3,7 @@ import logo from '/assets/ToyVerse Logo.png'
 
 const Footer = () => {
     return (
-        <div className='max-w-7xl mx-auto'>
+        <div className=''>
             <footer className="footer p-10 lg:px-20 bg-base-200 flex justify-between ">
             <div className="items-center">
                 <img className='w-8 rounded-sm mr-1' src={logo} alt="" />
