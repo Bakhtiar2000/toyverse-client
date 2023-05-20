@@ -48,7 +48,7 @@ const ShopByCategory = () => {
             <TabPanel key={category}>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {filteredToys.map((toy) => (
-                        <div key={toy.id} className="p-4 border rounded-lg flex justify-evenly items-center">
+                        <div key={toy.id} className="p-4 border rounded-lg flex justify-evenly lg:justify-between items-center gap-4">
                             <img
                                 src={toy.picture}
                                 alt={toy.name}
@@ -70,7 +70,7 @@ const ShopByCategory = () => {
 
     return (
         <div className="container mx-auto py-8 max-w-7xl">
-            <h1 className="text-3xl mb-4 text-center">Shop by category</h1>
+            <h1 className="font-semibold text-5xl mb-4 text-center">Shop by category</h1>
             {toys.length === 0 ? (
                 <p>Loading...</p>
             ) : (

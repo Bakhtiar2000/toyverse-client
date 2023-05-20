@@ -6,6 +6,10 @@
     background-image: url('/assets/Gallery/infinity gauntlet.jpg');
     background-size: cover;
 }
+.batman{
+    background-image: url('/assets/Gallery/batman.jpg');
+    background-size: cover;
+}
 .deadpool{
     background-image: url('/assets/Gallery/deadpool.jpg');
     background-size: cover;
