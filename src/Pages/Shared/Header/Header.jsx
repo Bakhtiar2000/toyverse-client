@@ -19,15 +19,15 @@ const Header = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/'>Home</Link></li>
-                        <li><Link>All Toys</Link></li>
+                        <li><Link to='/allToys'>All Toys</Link></li>
                         {
                             user &&
                             <div>
-                                <li><Link>Add a Toy</Link></li>
-                                <li><Link to='/blogs'>My Toys</Link></li>
+                                <li to='/addAToy'><Link>Add a Toy</Link></li>
+                                <li><Link to='/myToys'>My Toys</Link></li>
                             </div>
                         }
-                        <li><Link to='/blogs'>Blogs</Link></li>
+                        <li><Link to='/blog'>Blogs</Link></li>
                     </ul>
                 </div>
                 <Link to='/'><img className='w-8 rounded-md ml-3' src={logo} alt="" /></Link>
@@ -38,16 +38,16 @@ const Header = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link>All Toys</Link></li>
-                    {
-                        user &&
-                        <div className='flex'>
-                            <li><Link>Add a Toy</Link></li>
-                            <li><Link to='/blogs'>My Toys</Link></li>
-                        </div>
-                    }
-                    <li><Link to='/blogs'>Blogs</Link></li>
+                <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/allToys'>All Toys</Link></li>
+                        {
+                            user &&
+                            <div className='flex'>
+                                <li to='/addAToy'><Link>Add a Toy</Link></li>
+                                <li><Link to='/myToys'>My Toys</Link></li>
+                            </div>
+                        }
+                        <li><Link to='/blog'>Blogs</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">

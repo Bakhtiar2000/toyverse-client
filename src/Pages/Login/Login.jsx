@@ -13,40 +13,44 @@ const Login = () => {
 
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
-    const [show, setShow]= useState(false)
+    const [show, setShow] = useState(false)
 
-    const handlePasswordToggle= ()=>{
+    const handlePasswordToggle = () => {
         setShow(!show)
     }
-    setError('')
-    setSuccess('')
     const handleLogin = event => {
         event.preventDefault()
         const form = event.target
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+        setError('')
+        setSuccess('')
 
         signIn(email, password)
             .then(res => {
-                const user = res.user
-                console.log(user)
+                const loggedUser = res.user
+                console.log(loggedUser)
                 setSuccess('Login successful')
                 navigate(from, { replace: true })
+                form.reset()
             })
-            .catch(err =>{
+            .catch(err => {
                 console.log(err.message)
-                if(err.message== 'Firebase: Error (auth/wrong-password).'){
+                if (err.message == 'Firebase: Error (auth/wrong-password).') {
                     setError('Password did not match')
-                }                   
+                }
             })
+    }
 
-        googleSignIn(email, password)
+    const handleLogInWithGoogle= ()=> {
+        googleSignIn()
             .then(res => {
-                const user = res.user
-                console.log(user)
+                const loggedUser = res.user
+                console.log(loggedUser)
                 setSuccess('Login successful')
                 navigate(from, { replace: true })
+                form.reset()
             })
             .catch(err => console.log(err))
     }
@@ -71,8 +75,8 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type={show? 'text': 'password'} name="password" placeholder="password" className="input input-bordered relative" />
-                                <FaEye onClick={handlePasswordToggle} className='absolute top-52 right-12 text-slate-500 hover:text-slate-700'/>
+                                <input type={show ? 'text' : 'password'} name="password" placeholder="password" className="input input-bordered relative" />
+                                <FaEye onClick={handlePasswordToggle} className='absolute top-52 right-12 text-slate-500 hover:text-slate-700' />
                                 <label className="label">
                                     <div className='flex items-center justify-start gap-2'>
                                         <input type="checkbox" className="w-3 h-3" />
@@ -86,9 +90,11 @@ const Login = () => {
                             </div>
                         </form>
                         {error !== '' && <p className='text-red-500 text-xs mt-3 text-center'>{error}</p>}
-                        
+
                         <div className="divider">OR</div>
-                        <button className="btn btn-outline btn-primary"><span className='mr-2 text-xl'><FcGoogle /> </span> Continue with google</button>
+                        <button onClick={handleLogInWithGoogle} className="btn btn-outline btn-primary">
+                            <span className='mr-2 text-xl'><FcGoogle /> </span> Continue with google
+                        </button>
                         {success !== '' && <p className='text-green-500 text-xs mt-3 text-center'>{success}</p>}
                         <p className='text-center mt-3'>Don't have an account? <Link to='/register'><span className='text-primary'>Register</span></Link></p>
                     </div>
