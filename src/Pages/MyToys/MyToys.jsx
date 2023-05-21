@@ -9,6 +9,7 @@ const MyToys = () => {
     const { user } = useContext(AuthContext)
     const [toys, setToys] = useState([])
     const [updatedToys, setUpdatedToys] = useState([])
+    const [sortOrder, setSortOrder] = useState('ascending');
     const navigate = useNavigate()
 
     const url = `http://localhost:5000/toys?email=${user?.email}`
@@ -87,16 +88,25 @@ const MyToys = () => {
     }
 
     const handleSortButtonClick = () => {
-        let sortedToys = [...toys]; 
-        sortedToys.sort((a, b) => a.price - b.price);
+        let sortedToys = [...toys];
+        
+        if (sortOrder === 'ascending') {
+          sortedToys.sort((a, b) => a.price - b.price);
+          setSortOrder('descending');
+        } else {
+          sortedToys.sort((a, b) => b.price - a.price);
+          setSortOrder('ascending');
+        }
+        
         setToys(sortedToys);
       };
+      
       
 
     return (
         <div>
             <h2 className='text-center font-semibold text-5xl my-8'>Your Added Toys</h2>
-            <button onClick={handleSortButtonClick} className="btn bg-orange-700 btn-sm border-0 mb-5">Filter By price</button>
+            <button onClick={handleSortButtonClick} className="btn bg-gray-400 btn-sm border-0 mb-5">Filter By {sortOrder} price</button>
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
