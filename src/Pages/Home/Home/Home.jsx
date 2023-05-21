@@ -4,15 +4,19 @@ import Gallery from '../Gallery/Gallery';
 import ShopByCategory from '../ShopByCategory/ShopByCategory';
 import YouMayLike from '../YouMayLike/YouMayLike';
 import CustomerReview from '../CustomerReview/CustomerReview';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
     return (
         <div className='px-3'>
-           <Banner></Banner>
-           <Gallery></Gallery>
-           <ShopByCategory></ShopByCategory>
-           <YouMayLike></YouMayLike>
-           <CustomerReview></CustomerReview>
+            <Helmet>
+                <title>Toy Verse | Home</title>
+            </Helmet>
+            <Banner></Banner>
+            <Gallery></Gallery>
+            <ShopByCategory></ShopByCategory>
+            <YouMayLike></YouMayLike>
+            <CustomerReview></CustomerReview>
         </div>
     );
 };

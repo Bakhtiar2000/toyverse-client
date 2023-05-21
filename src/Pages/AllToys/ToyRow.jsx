@@ -11,7 +11,7 @@ const ToyRow = ({ toy }) => {
                 </div>
             </td>
             <td>{name}</td>
-            <td>{seller}</td>
+            <td>{seller? seller: ''}</td>
             <td>{category}</td>
             <td>{available_quantity}</td>
             <th>

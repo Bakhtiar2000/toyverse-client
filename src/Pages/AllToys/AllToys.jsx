@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ToyRow from './ToyRow';
+import { Helmet } from 'react-helmet';
 
 const AllToys = () => {
     const toys = useLoaderData().slice(0, 20);
@@ -17,6 +18,9 @@ const AllToys = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Toy Verse | All Toys</title>
+            </Helmet>
             <div className='flex justify-center items-center gap-2 my-5'>
             <input className='w-60 px-2 py-1 border-2 rounded-md'
                 type="text"

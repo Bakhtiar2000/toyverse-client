@@ -4,11 +4,13 @@ import logo from '/assets/ToyVerse Logo.png'
 import { FaEye } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
     const [show, setShow]= useState(false)
     const [success, setSuccess] = useState('')
+    const [error, setError] = useState('');
 
     const handlePasswordToggle= ()=>{
         setShow(!show)
@@ -22,11 +24,18 @@ const Register = () => {
         const password = form.password.value;
         console.log(name, photo, email, password)
         setSuccess('')
+        setSuccess('')
+
+        if (password.length < 6) {
+            setError('Password must be six characters long')
+            return
+        }
 
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user
                 console.log(createdUser)
+                setError('')
                 setSuccess('Registration successful')
                 updateProfile(createdUser, {
                     displayName: name, photoURL: photo
@@ -34,13 +43,16 @@ const Register = () => {
                     .then(() => {
                         console.log('Profile Updated!')
                     })
-                    .catch((error) => console.log(error.message));
+                    .catch((error) => setError(error.message));
                 form.reset()
             })
-            .catch(err => console.log(err.message))
+            .catch(err => setError(err.message))
     }
     return (
         <div className="hero min-h-screen">
+            <Helmet>
+                <title>Toy Verse | Register</title>
+            </Helmet>
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                     <img className='w-12 rounded mb-10' src={logo} alt="" />
@@ -83,8 +95,10 @@ const Register = () => {
                                 <button className="btn btn-primary">Register</button>
                             </div>
                         </form>
-                        <p className='text-center mt-3'>Already have an account? <Link to='/login'><span className='text-primary'>Login</span></Link></p>
                         {success !== '' && <p className='text-green-500 text-xs mt-3 text-center'>{success}</p>}
+                        {error !== '' && <p className='text-red-500 text-xs mt-3 text-center'>{error}</p>}
+                        <p className='text-center mt-3'>Already have an account? <Link to='/login'><span className='text-primary'>Login</span></Link></p>
+                       
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import MyToyRow from './MyToyRow';
 import Swal from 'sweetalert2';
 import ModalButton from './MyToyRow';
+import { Helmet } from 'react-helmet';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext)
@@ -12,7 +13,7 @@ const MyToys = () => {
     const [sortOrder, setSortOrder] = useState('ascending');
     const navigate = useNavigate()
 
-    const url = `http://localhost:5000/toys?email=${user?.email}`
+    const url = `https://toyverse-server-ivory.vercel.app/toys?email=${user?.email}`
 
     useEffect(() => {
         fetch(url, {
@@ -39,7 +40,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/toys/${id}`, {
+                fetch(`https://toyverse-server-ivory.vercel.app/toys/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -105,6 +106,9 @@ const MyToys = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Toy Verse | My Toys</title>
+            </Helmet>
             <h2 className='text-center font-semibold text-5xl my-8'>Your Added Toys</h2>
             <button onClick={handleSortButtonClick} className="btn bg-gray-400 btn-sm border-0 mb-5">Filter By {sortOrder} price</button>
 

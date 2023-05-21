@@ -43,7 +43,7 @@ const ShopByCategory = () => {
 
     const fetchToys = async () => {
         try {
-            const response = await fetch('http://localhost:5000/toys');
+            const response = await fetch('https://toyverse-server-ivory.vercel.app/toys');
             const data = await response.json();
             setToys(data);
         } catch (error) {

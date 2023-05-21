@@ -4,6 +4,7 @@ import logo from '/assets/ToyVerse Logo.png'
 import { FcGoogle } from 'react-icons/fc';
 import { FaEye } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext)
@@ -57,7 +58,11 @@ const Login = () => {
             .catch(err => console.log(err))
     }
     return (
+        
         <div className="hero min-h-screen">
+            <Helmet>
+                <title>Toy Verse | Login</title>
+            </Helmet>
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                     <img className='w-12 rounded mb-10' src={logo} alt="" />

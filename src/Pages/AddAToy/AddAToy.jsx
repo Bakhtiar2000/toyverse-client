@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const AddAToy = () => {
     const {user}= useContext(AuthContext)
@@ -30,7 +31,7 @@ const AddAToy = () => {
         }
         console.log(AddedToy)
 
-        fetch('http://localhost:5000/toys', {
+        fetch('https://toyverse-server-ivory.vercel.app/toys', {
             method: "POST",
             headers:{
                 "content-type": "application/json"
@@ -48,6 +49,9 @@ const AddAToy = () => {
     }
     return (
         <div className='mb-10 px-5'>
+            <Helmet>
+                <title>Toy Verse | Add a Toy</title>
+            </Helmet>
             <h2 className='text-center font-semibold text-5xl my-8'>Add a Toy</h2>
 
             <form onSubmit={handleAddAToy}>
