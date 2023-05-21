@@ -86,9 +86,17 @@ const MyToys = () => {
             })
     }
 
+    const handleSortButtonClick = () => {
+        let sortedToys = [...toys]; 
+        sortedToys.sort((a, b) => a.price - b.price);
+        setToys(sortedToys);
+      };
+      
+
     return (
         <div>
             <h2 className='text-center font-semibold text-5xl my-8'>Your Added Toys</h2>
+            <button onClick={handleSortButtonClick} className="btn bg-orange-700 btn-sm border-0 mb-5">Filter By price</button>
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
