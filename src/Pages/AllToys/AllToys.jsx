@@ -3,42 +3,53 @@ import { useLoaderData } from 'react-router-dom';
 import ToyRow from './ToyRow';
 
 const AllToys = () => {
-    const toys = useLoaderData()
-    const [page, setPage] = useState(1);
-    const itemsPerPage = 20;
-
-    const startIndex = (page - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const visibleToys = toys.slice(startIndex, endIndex);
+    const toys = useLoaderData().slice(0, 20);
+    const [searchInput, setSearchInput] = useState('');
+    const [filteredToys, setFilteredToys] = useState(toys);
+  
+    const handleSearchButtonClick = () => {
+      // Filter toys based on search input
+      const filteredToys = toys.filter((toy) =>
+        toy.name.toLowerCase().includes(searchInput.toLowerCase())
+      );
+      setFilteredToys(filteredToys);
+    };
 
     return (
-        <div className="overflow-x-auto w-full">
-            <table className="table w-full">
-                {/* head */}
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Seller</th>
-                        <th>Sub-category</th>
-                        <th>Available Quantity</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        visibleToys.map(toy => <ToyRow
-                            key={toy._id}
-                            toy={toy}
-                        ></ToyRow>)
-                    }
-                </tbody>
+        <div>
+            <div className='flex justify-center items-center gap-2 my-5'>
+            <input className='w-60 px-2 py-1 border-2 rounded-md'
+                type="text"
+                onChange={(e) => setSearchInput(e.target.value)}
+                placeholder="Search by toy name"
+            />
+            <button className='btn btn-sm bg-orange-500 border-0' onClick={handleSearchButtonClick}>Search</button>
+            </div>
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full text-center">
+                    {/* head */}
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Seller</th>
+                            <th>Sub-category</th>
+                            <th>Available Quantity</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            filteredToys.map(toy => <ToyRow
+                                key={toy._id}
+                                toy={toy}
+                            ></ToyRow>)
+                        }
+                    </tbody>
+
+                </table>
                 
-            </table>
-            <div className='flex justify-center items-center gap-5 my-5'>
-                    <button className='btn bg-orange-500 border-0' disabled={page === 1} onClick={() => setPage(page - 1)}>Previous</button>
-                    <button className='btn bg-orange-500 border-0' disabled={endIndex >= toys.length} onClick={() => setPage(page + 1)}>Next</button>
-                </div>
+            </div>
         </div>
     );
 };

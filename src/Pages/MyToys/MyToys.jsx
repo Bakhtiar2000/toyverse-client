@@ -109,7 +109,7 @@ const MyToys = () => {
             <button onClick={handleSortButtonClick} className="btn bg-gray-400 btn-sm border-0 mb-5">Filter By {sortOrder} price</button>
 
             <div className="overflow-x-auto w-full">
-                <table className="table w-full">
+                <table className="table w-full text-center">
                     {/* head */}
                     <thead>
                         <tr>
