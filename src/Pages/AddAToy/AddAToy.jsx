@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
 const AddAToy = () => {
     const {user}= useContext(AuthContext)
     const handleAddAToy = event => {
         event.preventDefault()
-        const form= event.target
-        const photo= form.photo.value;
+        const form = event.target
         const toy_name= form.toy_name.value;
+        const photo= form.photo.value;
         const seller_name= form.seller_name.value;
         const email= form.email.value;
         const category= form.category.value;
@@ -17,24 +18,39 @@ const AddAToy = () => {
         const description= form.description.value;
 
         const AddedToy={
-            toy_name,
-            photo,
-            seller_name,
-            email,
+            name: toy_name,
+            picture: photo,
+            seller: seller_name,
+            seller_email: email,
             category,
             price,
             rating,
-            quantity,
+            available_quantity:quantity,
             description
         }
         console.log(AddedToy)
+
+        fetch('http://localhost:5000/toys', {
+            method: "POST",
+            headers:{
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(AddedToy)
+        })
+        .then(res=> res.json())
+        .then(data=> {
+            console.log(data)
+            if(data.insertedId){
+                toast.success('Successfully added the product');
+            }
+        })
 
     }
     return (
         <div className='mb-10 px-5'>
             <h2 className='text-center font-semibold text-5xl my-8'>Add a Toy</h2>
 
-            <form onClick={handleAddAToy}>
+            <form onSubmit={handleAddAToy}>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
                     {/* Picture URL */}
@@ -113,15 +129,14 @@ const AddAToy = () => {
                         <input type="text" name="description" placeholder="Detail Description" className="input input-bordered" />
                     </div>
 
-
-
                 </div>
 
                 <div className="form-control mt-5">
                     <input className="btn bg-orange-500 border-0 btn-block" type="submit" value="Add this toy" />
+                    
                 </div>
             </form>
-
+            <Toaster position="top-right" />
         </div>
     );
 };

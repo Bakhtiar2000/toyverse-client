@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Link } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const ShopByCategory = () => {
     const [toys, setToys] = useState([])
@@ -24,6 +25,8 @@ const ShopByCategory = () => {
     const handleTabClick = (index) => {
         setActiveTabIndex(index);
     };
+
+    const notify = () => toast('You have to log in first to view details');
 
     const renderTabList = (categories) => {
         return (
@@ -49,7 +52,7 @@ const ShopByCategory = () => {
             <TabPanel key={category}>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {filteredToys.map((toy) => (
-                        <div key={toy.id} className="p-4 border rounded-lg flex justify-evenly lg:justify-between items-center gap-4">
+                        <div key={toy._id} className="p-4 border rounded-lg flex justify-evenly lg:justify-between items-center gap-4">
                             <img
                                 src={toy.picture}
                                 alt={toy.name}
@@ -60,7 +63,7 @@ const ShopByCategory = () => {
                                 <h2 className="text-2xl font-semibold text-orange-700 mb-5">{toy.name}</h2>
                                 <p className="mb-1"><span className='font-semibold'>Price:</span> ${toy.price}</p>
                                 <p className="mb-1"><span className='font-semibold'>Rating: </span>{toy.rating}</p>   
-                                <Link to={`/singleToyDetails/${toy._id}`}><div className="btn bg-orange-500 border-0 mt-5">View Details</div></Link>
+                                <Link to={`/singleToyDetails/${toy._id}`}><div onClick={notify} className="btn bg-orange-500 border-0 mt-5">View Details <Toaster /></div></Link>
                             </div>
                         </div>
                     ))}
