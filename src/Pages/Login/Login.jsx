@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '/assets/ToyVerse Logo.png'
 import { FcGoogle } from 'react-icons/fc';
 import { FaEye } from 'react-icons/fa';
@@ -8,9 +8,10 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext)
     const location = useLocation()
-    const navigate = useNavigation()
+    const navigate = useNavigate()
     console.log(navigate)
     const from = location.state?.from?.pathname || '/'
+    console.log(from)
 
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
