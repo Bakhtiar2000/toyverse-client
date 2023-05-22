@@ -4,7 +4,7 @@ import ToyRow from './ToyRow';
 import { Helmet } from 'react-helmet';
 
 const AllToys = () => {
-    const toys = useLoaderData().slice(0, 20);
+    const toys = useLoaderData()
     const [searchInput, setSearchInput] = useState('');
     const [filteredToys, setFilteredToys] = useState(toys);
   

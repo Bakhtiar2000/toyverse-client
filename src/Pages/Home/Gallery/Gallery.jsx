@@ -2,10 +2,11 @@ import React from 'react';
 import batman from '/assets/Gallery/batman.jpg'
 import './Gallery.css'
 
+
 const Gallery = () => {
     return (
-        <div className='mb-10 max-w-7xl mx-auto'>
-            <h2 className='text-center font-semibold text-5xl my-8'>Trending collections</h2>
+        <div className='mb-10 max-w-7xl mx-auto mt-10'>
+            <h2 className='text-center font-semibold md:text-5xl text-3xl text-yellow-950 my-8'>Trending collections</h2>
             <div className='grid lg:grid-cols-3 gap-10'>
                 <div className='grid grid-flow-row gap-5'>
                     <div className='h-80 w-80 text-white text-2xl text-center antman mx-auto'>

@@ -10,9 +10,9 @@ const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
-    console.log(navigate)
+    // console.log(navigate)
     const from = location.state?.from?.pathname || '/'
-    console.log(from)
+    // console.log(from)
 
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
@@ -35,11 +35,12 @@ const Login = () => {
                 const loggedUser = res.user
                 console.log(loggedUser)
                 setSuccess('Login successful')
+                setError('')
                 navigate(from, { replace: true })
                 form.reset()
             })
             .catch(err => {
-                console.log(err.message)
+                setError(err.message)
                 if (err.message == 'Firebase: Error (auth/wrong-password).') {
                     setError('Wrong Password given')
                 }
@@ -52,10 +53,11 @@ const Login = () => {
                 const loggedUser = res.user
                 console.log(loggedUser)
                 setSuccess('Login successful')
+                setError('')
                 navigate(from, { replace: true })
                 form.reset()
             })
-            .catch(err => console.log(err))
+            .catch(err => setError(err.message))
     }
     return (
         

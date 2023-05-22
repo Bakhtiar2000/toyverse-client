@@ -7,16 +7,16 @@ import 'swiper/css/navigation';
 
 const CustomerReview = () => {
     return (
-        <div className='max-w-7xl mx-auto mb-10 mt-5'>
-            <h1 className="text-center font-semibold text-5xl my-8">Hear from our customers</h1>
+        <div className='max-w-7xl mx-auto mb-10 mt-10'>
+            <h1 className="text-center font-semibold md:text-5xl text-3xl my-10 text-yellow-950 ">Words from our customers</h1>
             <Swiper
                 modules={[Navigation]}
                 spaceBetween={50}
                 slidesPerView={2}
                 navigation
             >
-                <SwiperSlide className="text-white text-center bg-yellow-950 lg:max-w-lg md:max-w-md max-w-xs mx-auto rounded-2xl">
-                    <div className="px-4 pt-8 pb-6">
+                <SwiperSlide className="max-w-xs min-w-xs text-white text-center bg-yellow-950 lg:max-w-lg md:max-w-md  mx-auto rounded-2xl">
+                    <div className=" px-4 pt-8 pb-6">
                         <img className='rounded-lg border-2 border-orange-100 w-24 mx-auto mt-5' src="https://img.freepik.com/free-photo/close-up-portrait-curly-handsome-european-male_176532-8133.jpg?size=626&ext=jpg&ga=GA1.2.670690934.1670350375&semt=ais" alt="" />
                         <p className="text-2xl text-white mb-5 mt-2 font-semibold text-orange-400">Olivier</p>
                         <p className="mb-10 bg-slate-100 text-black mx-5 py-3 px-5 rounded-lg">This toy shop is fantastic! They have a wide range of action figures for kids of all ages. The quality of the toys is top-notch, and the prices are reasonable.They have a fantastic collection of rare and limited edition figures. The attention to detail in each figure is remarkable. Highly recommended!</p>
@@ -24,28 +24,28 @@ const CustomerReview = () => {
                         
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className="text-white text-center bg-yellow-950   lg:max-w-lg md:max-w-md max-w-xs mx-auto rounded-2xl">
+                <SwiperSlide className="max-w-xs min-w-xs text-white text-center bg-yellow-950   lg:max-w-lg md:max-w-md  mx-auto rounded-2xl">
                     <div className="px-4 pt-8 pb-6">
                         <img className='rounded-lg border-2 border-orange-100 w-24 mx-auto mt-5' src="https://img.freepik.com/free-photo/caucasian-woman-s-portrait-isolated-coral-pink-studio-background-with-copyspace_155003-46026.jpg?size=626&ext=jpg&ga=GA1.2.670690934.1670350375&semt=ais" alt="" />
                         <p className="text-2xl text-white mb-5 mt-2 font-semibold text-orange-400">Sophia</p>
                         <p className="mb-10 bg-slate-100 text-black mx-5 py-3 px-5 rounded-lg">As a parent, I\'m always on the lookout for high-quality toys for my kids. This toy shop exceeded my expectations. The action figures are durable and safe for children. My kids love playing with them, and I feel confident in their safety. Thank you for providing such great toys!</p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className="text-white text-center bg-yellow-950   lg:max-w-lg md:max-w-md max-w-xs mx-auto rounded-2xl">
+                <SwiperSlide className="max-w-xs min-w-xs text-white text-center bg-yellow-950   lg:max-w-lg md:max-w-md  mx-auto rounded-2xl">
                     <div className="px-4 pt-8 pb-6">
                         <img className='rounded-lg border-2 border-orange-100 w-24 mx-auto mt-5' src="https://img.freepik.com/free-photo/portrait-handsome-brunet-unshaven-adult-man-looks-with-calm-confident-expression-has-serious-look-wears-casual-jumper-poses-making-photo-against-white-background-being-hard-impress_273609-57668.jpg?size=626&ext=jpg&ga=GA1.1.670690934.1670350375&semt=ais" alt="" />
                         <p className="text-2xl text-white mb-5 mt-2 font-semibold text-orange-400">Ben</p>
                         <p className="mb-10 bg-slate-100 text-black mx-5 py-3 px-5 rounded-lg">I\'m a collector of action figures, and I must say this toy shop is a collector\'s paradise. They have a fantastic collection of rare and limited edition figures. The attention to detail in each figure is remarkable. I couldn\'t be happier with my purchase. This is now my go-to shop for all my action figure needs!</p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className="text-white text-center bg-yellow-950   lg:max-w-lg md:max-w-md max-w-xs mx-auto rounded-2xl">
+                <SwiperSlide className="max-w-xs min-w-xs text-white text-center bg-yellow-950   lg:max-w-lg md:max-w-md  mx-auto rounded-2xl">
                     <div className="px-4 pt-8 pb-6">
                         <img className='rounded-lg border-2 border-orange-100 w-24 mx-auto mt-5' src="https://img.freepik.com/free-photo/worldface-american-man-white-background_53876-146319.jpg?size=626&ext=jpg&ga=GA1.1.670690934.1670350375&semt=ais" alt="" />
                         <p className="text-2xl text-white mb-5 mt-2 font-semibold text-orange-400">Jack</p>
                         <p className="mb-10 bg-slate-100 text-black mx-5 py-3 px-5 rounded-lg">I recently purchased action figures for my nephew from this toy shop, and he absolutely loved them! The toys were well-packaged and arrived on time. The variety of characters available is impressive. I will definitely be a repeat customer. Thank you for making my nephew happy!</p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className="text-white text-center bg-yellow-950   lg:max-w-lg md:max-w-md max-w-xs mx-auto rounded-2xl">
+                <SwiperSlide className="max-w-xs min-w-xs text-white text-center bg-yellow-950   lg:max-w-lg md:max-w-md  mx-auto rounded-2xl">
                     <div className="px-4 pt-8 pb-6">
                         <img className='rounded-lg border-2 border-orange-100 w-24 mx-auto mt-5' src="https://img.freepik.com/free-photo/close-up-stylish-attractive-girl-with-hairbun-smiling-looking-hopeful_176420-25550.jpg?size=626&ext=jpg&ga=GA1.2.670690934.1670350375&semt=ais" alt="" />
                         <p className="text-2xl text-white mb-5 mt-2 font-semibold text-orange-400">Emily</p>

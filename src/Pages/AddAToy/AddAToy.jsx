@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import { Helmet } from 'react-helmet';
+import Swal from 'sweetalert2';
 
 const AddAToy = () => {
     const {user}= useContext(AuthContext)
@@ -42,10 +43,15 @@ const AddAToy = () => {
         .then(data=> {
             console.log(data)
             if(data.insertedId){
-                toast.success('Successfully added the product');
+                Swal.fire(
+                    'Good job!',
+                    'You Added the product!',
+                    'success'
+                  )
+                
             }
         })
-
+        form.reset()
     }
     return (
         <div className='mb-10 px-5'>

@@ -13,7 +13,6 @@ import AllToys from '../Pages/AllToys/AllToys';
 import MyToys from '../Pages/MyToys/MyToys';
 import PrivateRoute from './PrivateRoute';
 import SingleToyDetails from '../Pages/SingleToyDetails/SingleToyDetails';
-import UpdateMyToy from '../Pages/MyToys/UpdateMyToy';
 
 const router = createBrowserRouter([
   {
@@ -44,15 +43,11 @@ const router = createBrowserRouter([
       {
         path: 'allToys',
         element: <AllToys></AllToys>,
-        loader: () => fetch('https://toyverse-server-ivory.vercel.app/toys')
+        loader: () => fetch('https://toyverse-server-ivory.vercel.app/toys?limit=20')
       },
       {
         path: 'myToys',
         element: <MyToys></MyToys>
-      },
-      {
-        path: 'updatedToy',
-        element: <UpdateMyToy></UpdateMyToy>
       },
       {
         path: 'singleToyDetails/:id',

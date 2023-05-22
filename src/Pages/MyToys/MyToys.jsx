@@ -65,7 +65,7 @@ const MyToys = () => {
     const handleUpdate = id => {
         console.log(updatedToys)
         console.log(id)
-        fetch(`https://car-doctor-server-main-one.vercel.app/bookings/${id}`, {
+        fetch(`https://toyverse-server-ivory.vercel.app/toys/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"
@@ -83,7 +83,11 @@ const MyToys = () => {
                     updated.available_quantity = updatedToys.available_quantity
                     const newToys = [updated, ...remaining]
                     setToys(newToys)
-                    alert('updated successfully')
+                    Swal.fire(
+                        'Good job!',
+                        'Details updated successfully',
+                        'success'
+                      )
                 }
             })
     }
@@ -99,13 +103,13 @@ const MyToys = () => {
           setSortOrder('ascending');
         }
         
-        setToys(sortedToys);
+        // setToys(sortedToys);
       };
       
       
 
     return (
-        <div>
+        <div className='px-8 mb-6'>
             <Helmet>
                 <title>Toy Verse | My Toys</title>
             </Helmet>
@@ -118,7 +122,7 @@ const MyToys = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Picture</th>
+                            <th></th>
                             <th>Name</th>
                             <th>Sub-category</th>
                             <th>Seller</th>
@@ -126,6 +130,7 @@ const MyToys = () => {
                             <th>Available Quantity</th>
                             <th>Rating</th>
                             <th>Description</th>
+                            <th></th>
                             <th></th>
                         </tr>
                     </thead>
