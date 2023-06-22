@@ -10,7 +10,6 @@ const MyToys = () => {
     const { user } = useContext(AuthContext)
     const [toys, setToys] = useState([])
     const [updatedToys, setUpdatedToys] = useState([])
-    const [sortOrder, setSortOrder] = useState('ascending');
     const navigate = useNavigate()
 
     const url = `https://toyverse-server-ivory.vercel.app/toys?email=${user?.email}`
@@ -91,20 +90,6 @@ const MyToys = () => {
                 }
             })
     }
-
-    const handleSortButtonClick = () => {
-        let sortedToys = [...toys];
-        
-        if (sortOrder === 'ascending') {
-          sortedToys.sort((a, b) => a.price - b.price);
-          setSortOrder('descending');
-        } else {
-          sortedToys.sort((a, b) => b.price - a.price);
-          setSortOrder('ascending');
-        }
-        
-        // setToys(sortedToys);
-      };
       
       
 
@@ -114,7 +99,6 @@ const MyToys = () => {
                 <title>Toy Verse | My Toys</title>
             </Helmet>
             <h2 className='text-center font-semibold text-5xl my-8'>Your Added Toys</h2>
-            <button onClick={handleSortButtonClick} className="btn bg-gray-400 btn-sm border-0 mb-5">Filter By {sortOrder} price</button>
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full text-center">

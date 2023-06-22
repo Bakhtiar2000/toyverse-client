@@ -27,12 +27,11 @@ const ShopByCategory = () => {
 
     const renderTabList = (categories) => {
         return (
-            <TabList className="flex mb-4">
+            <TabList className="flex justify-center mb-4">
                 {categories.map((category, index) => (
                     <Tab
                         key={category}
-                        className={`px-4 py-2 mr-2 cursor-pointer ${activeTabIndex === index ? 'bg-gray-200' : ''
-                            }`}
+                        className={`px-4 py-2 mr-2  bg-gray-200` }
                         onClick={() => handleTabClick(index)}
                     >
                         {category}

@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "toyverse-a5d84"
-  }
+    "default": "toyverse-7cb5f",
+    "toyVerse": "toyverse-7cb5f"
+  },
+  "targets": {},
+  "etags": {}
 }

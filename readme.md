@@ -11,4 +11,4 @@
 
 ## Live Link
 
-https://toyverse-a5d84.web.app/myToys
+https://silly-sprinkles-037140.netlify.app/

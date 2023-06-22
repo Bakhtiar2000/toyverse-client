@@ -1,11 +1,13 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation} from 'swiper';
+import { Navigation } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 const CustomerReview = () => {
+
+   
     return (
         <div className='max-w-7xl mx-auto mb-10 mt-10'>
             <h1 className="text-center font-semibold md:text-5xl text-3xl my-10 text-yellow-950 ">Words from our customers</h1>
@@ -20,8 +22,8 @@ const CustomerReview = () => {
                         <img className='rounded-lg border-2 border-orange-100 w-24 mx-auto mt-5' src="https://img.freepik.com/free-photo/close-up-portrait-curly-handsome-european-male_176532-8133.jpg?size=626&ext=jpg&ga=GA1.2.670690934.1670350375&semt=ais" alt="" />
                         <p className="text-2xl text-white mb-5 mt-2 font-semibold text-orange-400">Olivier</p>
                         <p className="mb-10 bg-slate-100 text-black mx-5 py-3 px-5 rounded-lg">This toy shop is fantastic! They have a wide range of action figures for kids of all ages. The quality of the toys is top-notch, and the prices are reasonable.They have a fantastic collection of rare and limited edition figures. The attention to detail in each figure is remarkable. Highly recommended!</p>
-                        
-                        
+
+
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className="max-w-xs min-w-xs text-white text-center bg-yellow-950   lg:max-w-lg md:max-w-md  mx-auto rounded-2xl">
